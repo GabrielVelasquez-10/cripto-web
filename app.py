@@ -28,7 +28,7 @@ def csv_data():
     for name_files in csv_files:
         name_index = name_files[0:len(name_files)-4]
         data[name_index] = pd.read_csv(f'csv_files/{name_files}')
-        data[name_index] = data[name_index][data_index]
+        # data[name_index] = data[name_index][data_index]
     return data
 data = csv_data()
 # endregion
@@ -38,8 +38,11 @@ data = csv_data()
 
 def crypto_cards():
     col = st.columns(1)
-    for i in range(len(csv_files)):
-        col[0].metric(label='Hola', value=20.2)
+    for name_files in csv_files:
+        name_index = name_files[0:len(name_files)-4]
+        col[0].metric(label=data[name_index]['Symbol'][0], value=20.2)
+
+        
     style_metric_cards(background_color='#14141a')
 # endregion
 
@@ -59,6 +62,7 @@ with st.container(key='wrapperGraph'):
             tab1, tab2 = st.tabs(['tab1', 'tab2'])
             with tab1:
                 st.header('grafico 1')
+                # mpl.plot()
             with tab2:
                 st.header('graficos 2')   
                 st.line_chart(data['coin_Aave']['Volume'])
