@@ -1,17 +1,15 @@
 # region import streamlit dependencies
 import streamlit as st
-import streamlit.components.v1 as components
-from streamlit_extras.metric_cards import style_metric_cards
 # endregion
 
 # region import global libreries
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import mplfinance as mpl
+import plotly.graph_objects as go
 import time as tm
-import os
 # endregion
+
+import dataf
+import viewf
 
 st.set_page_config(layout="wide")
 
@@ -19,54 +17,30 @@ st.set_page_config(layout="wide")
 with st.spinner('Wait for it...'): # loading page
     with open('custom.html') as file: # read html custom styles
         html_file = file.read()
-    csv_files = os.listdir('csv_files')
     tm.sleep(0.3)
-
-# region Data function
-def csv_data():
-    data = {}
-    data_index = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
-    for name_files in csv_files:
-        name_index = name_files[0:len(name_files)-4]
-        data[name_index] = pd.read_csv(f'csv_files/{name_files}')
-        # data[name_index] = data[name_index][data_index]
-    return data
-data = csv_data()
-# endregion
-
-
-# region View funcition
-
-def crypto_cards():
-    col = st.columns(1)
-    for name_files in csv_files:
-        name_index = name_files[0:len(name_files)-4]
-        col[0].metric(label=data[name_index]['Symbol'][0], value=f"${data[name_index]['Open'][-1:].round(3)}")
-
-        
-    style_metric_cards(background_color='#14141a')
-# endregion
 
 
 
 with st.container(key='cards'): # Cryto cards container
-    crypto_cards()
+    viewf.crypto_cards()
 
 
 with st.container(key='wrapperGraph'):
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([2, 5])
     with col1:
         with st.container(key='graphParam'):
-            st.write('## EExtitt')
+            st.write('## Parameters')
+            st.selectbox('select a option', dataf.names_index)
     with col2:
         with st.container(key='graphShow'):
-            tab1, tab2 = st.tabs(['tab1', 'tab2'])
+            tab1, tab2 = st.tabs(['Candle Graph', 'Line Graph'])
             with tab1:
+                fig = go.Figure()
+                fig.add_trace(go.Candlestick(x=dataf.data['coin_Aave']['Date'], open=dataf.data['coin_Aave']['Open'], high=dataf.data['coin_Aave']['High'], low=dataf.data['coin_Aave']['Low'], close=dataf.data['coin_Aave']['Close']))
+                st.plotly_chart(fig)
                 st.header('grafico 1')
-                # mpl.plot()
             with tab2:
-                st.header('graficos 2')   
-                st.line_chart(data['coin_Aave']['Volume'])
+                st.line_chart(dataf.data['coin_Aave']['Volume'], color='#ffffff')
 
 
 with st.container():
@@ -74,7 +48,6 @@ with st.container():
 
 with st.sidebar:
     st.write('## Side-Bar')
-
 
 st.markdown(html_file, unsafe_allow_html=True)
 
