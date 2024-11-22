@@ -13,7 +13,7 @@ from viewf import crypto_cards, graph_candle, graph_line, graph_bar, graph_pie
 
 st.set_page_config(layout="wide")
 
-
+# spinner
 with st.spinner('Wait for it...'): # loading page
     with open('custom.html') as file: # read html custom styles
         html_file = file.read()
