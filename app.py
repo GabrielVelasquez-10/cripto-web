@@ -9,7 +9,7 @@ import time as tm
 # endregion
 
 import dataf
-from viewf import crypto_cards, graph_candle, graph_line, graph_bar
+from viewf import crypto_cards, graph_candle, graph_line, graph_bar, graph_pie
 
 st.set_page_config(layout="wide")
 
@@ -38,6 +38,7 @@ with st.container(key='wrapperGraph'):
             params_max = st.checkbox('Max Value')
             params_min = st.checkbox('Min Value')
             params_mean = st.checkbox('Mean Value')
+            graph_pie()
     with col2:
         with st.container(key='graphShow'):
             tab1, tab2, tab3 = st.tabs(['Grafico de Velas', 'Grafico de Lineas', 'Grafico de Barras'])
@@ -49,9 +50,9 @@ with st.container(key='wrapperGraph'):
                 graph_bar(dataf.dataall)
                 pass
 
-st.divider()
 
 with st.container(key='wrapperCalculator'):
+    st.divider()
     st.write('# Calculadora de Criptomonedas')
     st.write('###### ')
     ccol1, ccol2 = st.columns([1,1])
