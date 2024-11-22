@@ -24,16 +24,13 @@ with st.spinner('Wait for it...'): # loading page
 with st.container(key='cards'): # Cryto cards container
     crypto_cards()
 
-hola = False
 with st.container(key='wrapperGraph'):
     col1, col2 = st.columns([2, 5])
     with col1:
         with st.container(key='graphParam'):
             st.write('## Parametros')
             params_selectbox = st.selectbox('Selecciona una criptomoneda', dataf.names_index)
-            if hola:
-                params_open = st.toggle('Valores de apertura')
-                params_close = st.toggle('Valores de Cierre')
+      
             st.write('#### Indicadores')
             params_max = st.checkbox('Max Value')
             params_min = st.checkbox('Min Value')
@@ -62,7 +59,6 @@ with st.container(key='wrapperCalculator'):
     with ccol2:
         calcu_outselectbox = st.selectbox('Selecciona la criptomoneda de salida', dataf.names_index)
         calcu_outnumber = st.number_input('',value=dataf.cryto_calulator(calcu_inselectbox, calcu_outselectbox, calcu_innumber))
-
 
 
 st.markdown(html_file, unsafe_allow_html=True)
