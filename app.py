@@ -36,6 +36,7 @@ with st.container(key='wrapperGraph'):
             params_min = st.checkbox('Min Value')
             params_mean = st.checkbox('Mean Value')
             graph_pie()
+            st.markdown(html_file, unsafe_allow_html=True)
     with col2:
         with st.container(key='graphShow'):
             tab1, tab2, tab3 = st.tabs(['Grafico de Velas', 'Grafico de Lineas', 'Grafico de Barras'])

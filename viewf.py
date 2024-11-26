@@ -6,9 +6,9 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 # Page color config
-color_primary = '#f5f5f5'
-color_background = '#1a1824'
-color_secondary_backgound = '#211d31'
+color_primary = '#7f36db'
+color_background = '#181818'
+color_secondary_backgound = '#281f32'
 color_font = '#fafafa'
 font = ''
 
@@ -45,15 +45,15 @@ def graph_line(data_index, line_max, line_min, line_mean):
 def graph_bar(data):
     fig = go.Figure()
     fig.add_trace(go.Bar(y=data, x=dataf.names_index, marker_color=color_primary))
-    # st.write(data)
     st.plotly_chart(fig)
 
 def graph_pie():
     labels = ['Poco Confiable', 'Muy Confiable']
     values = [4500, 2500]
-    colors = ['#2f2947', '#f5f5f5']
+    colors = [color_primary, color_secondary_backgound]
 
     # Use `hole` to create a donut-like pie chart
+    st.write('  Confiabilidad de Inversion')
     fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,marker=dict(colors=colors))])
     fig.update(layout_showlegend=False)
     fig.update_layout(autosize=False,height=300)
