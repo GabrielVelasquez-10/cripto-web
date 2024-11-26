@@ -5,14 +5,19 @@ import plotly.graph_objects as go
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-color_main = '#ff4b4b'
+# Page color config
+color_primary = '#f5f5f5'
+color_background = '#1a1824'
+color_secondary_backgound = '#211d31'
+color_font = '#fafafa'
+font = ''
 
 def crypto_cards():
     col = st.columns(1)
     for name_files in dataf.csv_files:
         name_index = name_files[0:len(name_files)-4]
         col[0].metric(label=dataf.data[name_index]['Symbol'][0], value=f"${dataf.data[name_index]['Close'][-1:]}")
-    style_metric_cards(background_color='#262730', border_color='#00000000', border_left_color='#ff4b4b')
+    style_metric_cards(background_color=color_secondary_backgound, border_color='#00000000', border_left_color=color_primary)
 
 def graph_candle(data_index, line_max, line_min, line_mean):
     fig = go.Figure()
@@ -27,7 +32,7 @@ def graph_candle(data_index, line_max, line_min, line_mean):
 
 def graph_line(data_index, line_max, line_min, line_mean):
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=dataf.data[data_index]['Date'], y=dataf.data[data_index]['Close'], marker_color=color_main))
+    fig.add_trace(go.Scatter(x=dataf.data[data_index]['Date'], y=dataf.data[data_index]['Close'], marker_color=color_primary))
     fig.update_layout(xaxis=dict(rangeslider=dict(visible=True)))
     if line_max:
         fig.add_hline(dataf.data[data_index]['Close'].max(), line_color='#da2929')
@@ -39,14 +44,14 @@ def graph_line(data_index, line_max, line_min, line_mean):
 
 def graph_bar(data):
     fig = go.Figure()
-    fig.add_trace(go.Bar(y=data, x=dataf.names_index, marker_color=color_main))
+    fig.add_trace(go.Bar(y=data, x=dataf.names_index, marker_color=color_primary))
     # st.write(data)
     st.plotly_chart(fig)
 
 def graph_pie():
-    labels = ['Poco Confiable','Medianamente Confiable','Muy Confiable']
-    values = [4500, 2500, 1053]
-    colors = ['#ff4b4b','#ffde4b','#4bff5a']
+    labels = ['Poco Confiable', 'Muy Confiable']
+    values = [4500, 2500]
+    colors = ['#2f2947', '#f5f5f5']
 
     # Use `hole` to create a donut-like pie chart
     fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,marker=dict(colors=colors))])

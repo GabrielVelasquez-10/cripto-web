@@ -21,7 +21,7 @@ with st.spinner('Wait for it...'): # loading page
         html_file = file.read()
     tm.sleep(0.3)
 
-
+st.markdown(html_file, unsafe_allow_html=True)
 
 with st.container(key='cards'): # Cryto cards container
     crypto_cards()
@@ -65,7 +65,7 @@ with st.container(key='wrapperCalculator'):
     with ccol2:
         calcu_outselectbox = st.selectbox('Selecciona la criptomoneda de salida', dataf.names_index)
         calcu_outnumber = st.number_input('',value=dataf.cryto_calulator(calcu_inselectbox, calcu_outselectbox, calcu_innumber))
-
+# st.dataframe(dataf.data['coin_Aave'])
 
 
 #st.dataframe(dataf.data[params_selectbox])

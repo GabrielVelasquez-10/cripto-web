@@ -1,14 +1,25 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    :root {
+        --font-family-main: 'Roboto', sans-serif;
+    }
+    html, body, [class*="css"], *, h2, h4, p, h1, div, g, path, .surface, g[class='slicetext'] {
+        /* font-family: var(--font-family-main); */
+        font-family: 'Space Grotesk';
+        font-weight: 700;
+    }
+
+    g[class='slicetext'], text[class="slicetext"] {
+        color: aliceblue;
+    }
 
     header[data-testid="stHeader"] {
         display: none;
     }
 
     div {
-        font-family: "Funnel Display", sans-serif;
+        /* font-family: "Funnel Display", sans-serif; */
         font-optical-sizing: auto;
         font-style: normal;
     }
@@ -24,6 +35,8 @@
     }
 
     div[data-testid="stMetric"], div[data-testid="metric-container"] {
+        font-family: var(--font-family-main);
+        font-weight: 400;
         width: 14rem;
         height: 7rem;
         border-radius: .6rem;
@@ -50,8 +63,4 @@
         z-index: 5;
     }
 
-
 </style>
-<script>
-
-</script>
