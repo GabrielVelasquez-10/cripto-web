@@ -56,7 +56,7 @@ def graph_pie():
     st.write('  Confiabilidad de Inversion')
     fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,marker=dict(colors=colors))])
     fig.update(layout_showlegend=False)
-    fig.update_layout(autosize=False,height=300)
+    fig.update_layout(autosize=False,height=300, paper_bgcolor='rgba(0, 0, 0, 0)')
     st.plotly_chart(fig)
 
 

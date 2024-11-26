@@ -13,7 +13,7 @@ from viewf import crypto_cards, graph_candle, graph_line, graph_bar, graph_pie
 from datetime import datetime
 
 st.set_page_config(layout="wide")
-st.image('Post_de_Instagram_podcast_negocios_formal-removebg-preview.png')
+# st.image('Post_de_Instagram_podcast_negocios_formal-removebg-preview.png')
 
 # spinner
 with st.spinner('Wait for it...'): # loading page
