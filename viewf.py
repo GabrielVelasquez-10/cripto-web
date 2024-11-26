@@ -59,3 +59,4 @@ def graph_pie():
     fig.update_layout(autosize=False,height=300)
     st.plotly_chart(fig)
 
+

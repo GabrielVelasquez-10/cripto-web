@@ -26,3 +26,12 @@ def cryto_all_values():
     dataall = pd.DataFrame(dataall).fillna(0).sum()
     return dataall
 dataall = cryto_all_values()
+
+#intento de convertir un str a fecha y poder trabajarlo 
+def date_visualization():
+    dats={}
+    for date in names_index:
+        dats[date]= data[date]['Date']
+    dats= {key: pd.to_datetime(value, format='ISO8601') for key, value in dats.items()} 
+    return dats
+dats=date_visualization()
