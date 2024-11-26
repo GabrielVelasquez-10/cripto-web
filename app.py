@@ -16,12 +16,12 @@ st.set_page_config(layout="wide")
 # st.image('Post_de_Instagram_podcast_negocios_formal-removebg-preview.png')
 
 # spinner
-with st.spinner('Wait for it...'): # loading page
+with st.spinner('Cargando...'): # loading page
     with open('custom.html') as file: # read html custom styles
         html_file = file.read()
-    tm.sleep(0.3)
+    st.markdown(html_file, unsafe_allow_html=True)
+    tm.sleep(3)
 
-st.markdown(html_file, unsafe_allow_html=True)
 
 with st.container(key='cards'): # Cryto cards container
     crypto_cards()
@@ -38,7 +38,7 @@ with st.container(key='wrapperGraph'):
             params_min = st.checkbox('Min Value')
             params_mean = st.checkbox('Mean Value')
  
-            st.select_slider('Seleccionar rango de meses', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','diciembre'], value= 'Junio')
+            st.select_slider('Seleccionar rango de meses', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], value= 'Junio')
             rango1=st.selectbox('seleccionar un rango', ['1-10', '10-15', '15-31'])
 
             graph_pie()
@@ -54,7 +54,6 @@ with st.container(key='wrapperGraph'):
                 graph_bar(dataf.dataall)
                 pass
 
-
 with st.container(key='wrapperCalculator'):
     st.divider()
     st.write('# Calculadora de Criptomonedas')
@@ -66,12 +65,8 @@ with st.container(key='wrapperCalculator'):
     with ccol2:
         calcu_outselectbox = st.selectbox('Selecciona la criptomoneda de salida', dataf.names_index)
         calcu_outnumber = st.number_input('',value=dataf.cryto_calulator(calcu_inselectbox, calcu_outselectbox, calcu_innumber))
-# st.dataframe(dataf.data['coin_Aave'])
 
-
-#st.dataframe(dataf.data[params_selectbox])
 res=dataf.data[params_selectbox]['Open']- dataf.data[params_selectbox]['Close']
 st.dataframe(res)
 st.dataframe(dataf.dats)
 st.markdown(html_file, unsafe_allow_html=True)
-
