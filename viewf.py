@@ -47,14 +47,13 @@ def graph_bar(data):
     fig.add_trace(go.Bar(y=data, x=dataf.names_index, marker_color=color_primary))
     st.plotly_chart(fig)
 
-def graph_pie():
-    labels = ['Poco Confiable', 'Muy Confiable']
-    values = [4500, 2500]
-    colors = [color_primary, color_secondary_backgound]
-
-    # Use `hole` to create a donut-like pie chart
-    st.write('  Confiabilidad de Inversion')
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,marker=dict(colors=colors))])
+def graph_pie(index):
+    volatility = dataf.crypto_volatility(index)
+    labels = ['Poco Volatil', 'Muy Volatil']
+    values = [dataf.crypto_volatility('coin_Bitcoin')*1.4, volatility]
+    colors = [color_secondary_backgound, color_primary]
+    st.write('  Volatilidad del Mercado')
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, marker=dict(colors=colors))])
     fig.update(layout_showlegend=False)
     fig.update_layout(autosize=False,height=300, paper_bgcolor='rgba(0, 0, 0, 0)')
     st.plotly_chart(fig)

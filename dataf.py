@@ -27,6 +27,8 @@ def cryto_all_values():
     return dataall
 dataall = cryto_all_values()
 
+def crypto_volatility(index):
+    return data[index]['Volume'][160:-1].mean()
 #intento de convertir un str a fecha y poder trabajarlo 
 def date_visualization():
     dats={}

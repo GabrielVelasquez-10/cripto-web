@@ -41,7 +41,7 @@ with st.container(key='wrapperGraph'):
             st.select_slider('Seleccionar rango de meses', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], value= 'Junio')
             rango1=st.selectbox('seleccionar un rango', ['1-10', '10-15', '15-31'])
 
-            graph_pie()
+            graph_pie(params_selectbox)
             st.markdown(html_file, unsafe_allow_html=True)
     with col2:
         with st.container(key='graphShow'):
@@ -65,8 +65,4 @@ with st.container(key='wrapperCalculator'):
     with ccol2:
         calcu_outselectbox = st.selectbox('Selecciona la criptomoneda de salida', dataf.names_index)
         calcu_outnumber = st.number_input('',value=dataf.cryto_calulator(calcu_inselectbox, calcu_outselectbox, calcu_innumber))
-
-res=dataf.data[params_selectbox]['Open']- dataf.data[params_selectbox]['Close']
-st.dataframe(res)
-st.dataframe(dataf.dats)
 st.markdown(html_file, unsafe_allow_html=True)
