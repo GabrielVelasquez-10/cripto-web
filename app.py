@@ -35,12 +35,9 @@ with st.container(key='wrapperGraph'):
             
             st.write('#### Indicadores')
             params_max = st.checkbox('Max Value')
-            params_min = st.checkbox('Min Value')
             params_mean = st.checkbox('Mean Value')
+            params_min = st.checkbox('Min Value')
  
-            st.select_slider('Seleccionar rango de meses', ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], value= 'Junio')
-            rango1=st.selectbox('seleccionar un rango', ['1-10', '10-15', '15-31'])
-
             graph_pie(params_selectbox)
             st.markdown(html_file, unsafe_allow_html=True)
     with col2:
@@ -53,6 +50,10 @@ with st.container(key='wrapperGraph'):
             with tab3:
                 graph_bar(dataf.dataall)
                 pass
+        with st.container(key='graphInfo'):
+            st.write('#### Titulo')
+            st.write('Lorem Ipsum is simply dummy text of the printing and typesetting industry.')
+            pass
 
 with st.container(key='wrapperCalculator'):
     st.divider()

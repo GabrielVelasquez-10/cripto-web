@@ -1,26 +1,30 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
     :root {
-        --font-family-main: 'Roboto', sans-serif;
+        --color-secondary: #281f32;
+        --font-main: 'Space Grotesk';
+
     }
-    html, body, [class*="css"], *, h2, h4, p, h1, div, g, path, .surface, g[class='slicetext'] {
-        font-family: 'Space Grotesk';
+
+    /* #region    Global config */
+    html, body, [class*="css"], *, h2, h4, h3, p, h1, div, g, path, .surface, g[class='slicetext'] {
+        font-family: var(--font-main);
         font-weight: 700;
+    }div {
+        font-optical-sizing: auto;
+        font-style: normal;
     }
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+    /* #endregio */
 
     g[class='slicetext'], text[class="slicetext"] {
         color: aliceblue;
     }
 
-    header[data-testid="stHeader"] {
-        display: none;
-    }
-
-    div {
-        font-optical-sizing: auto;
-        font-style: normal;
-    }
-
+    /* #region    Cards */
     .st-key-cards div[data-testid="stVerticalBlock"]{
         border-radius: .6rem;
         display: flex;
@@ -32,12 +36,13 @@
     }
 
     div[data-testid="stMetric"], div[data-testid="metric-container"] {
-        font-family: var(--font-family-main);
+        font-family: var(--font-main);
         font-weight: 400;
         width: 14rem;
         height: 7rem;
         border-radius: .6rem;
     }
+    /* #endregion */
 
     .st-key-wrapperGraph {
         height: 100%;
@@ -69,8 +74,9 @@
         top: -170px;
         z-index: 20000;
     }
+
     .st-emotion-cache-j78z8c {
-        font-family: 'Space Grotesk';
+        font-family: var(--font-main);
         justify-content: center;
     }
 
@@ -79,5 +85,12 @@
         height: 3rem;
         border-width: .4rem;
         font-size: 2rem;
+    }
+
+    .st-key-graphInfo {
+        background-color: #281f32;
+        padding: .2rem .3rem .8rem .8rem;
+        border-radius: .6rem;
+        top: -4.4rem;
     }
 </style>
