@@ -10,7 +10,6 @@ import time as tm
 
 import dataf
 from viewf import crypto_cards, graph_candle, graph_line, graph_bar, graph_pie
-from datetime import datetime
 
 logo = 'logo-web.svg'
 st.set_page_config(page_title='Crypto Web', page_icon=logo, layout="wide")

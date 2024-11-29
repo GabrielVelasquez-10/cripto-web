@@ -1,5 +1,6 @@
 streamlit
 pandas
-matplotlib
 os
-mplfinance
+time
+plotly
+streamlit-extras
