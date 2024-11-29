@@ -1,6 +1,4 @@
 streamlit
 pandas
-os
-time
 plotly
 streamlit_extras
