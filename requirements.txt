@@ -3,4 +3,4 @@ pandas
 os
 time
 plotly
-streamlit-extras
+streamlit_extras
