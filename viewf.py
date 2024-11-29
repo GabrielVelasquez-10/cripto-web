@@ -7,8 +7,6 @@ import plotly.graph_objects as go
 color_primary = '#7f36db'
 color_background = '#181818'
 color_secondary_backgound = '#281f32'
-color_font = '#fafafa'
-font = ''
 
 def crypto_cards():
     col = st.columns(1)
@@ -42,6 +40,7 @@ def graph_line(data_index, line_max, line_min, line_mean):
 def graph_bar(data):
     fig = go.Figure()
     fig.add_trace(go.Bar(y=data, x=dataf.names_index, marker_color=color_primary, name='Valor de los Mercados'))
+    fig.update_layout(height=394)
     st.plotly_chart(fig)
 
 def graph_pie(data_index):

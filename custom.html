@@ -18,10 +18,11 @@
     header[data-testid="stHeader"] {
         display: none;
     }
-    /* #endregio */
+    /* #endregion */
 
-    g[class='slicetext'], text[class="slicetext"] {
-        color: aliceblue;
+    .stImage { /* Logo */
+        position: absolute;
+        top: -4.9rem;
     }
 
     /* #region    Cards */
@@ -53,19 +54,16 @@
         border-radius: .6rem;
         z-index: 1;
     }
-
     .st-key-graphParam div[class="user-select-none svg-container"] { 
         top: -90px;
         right: 5%;
         display: flex;
         justify-content: center;
         z-index: 100;
-
     }
     .st-key-graphParam div[class="st-emotion-cache-nok2kl e1nzilvr5"] p{ 
         padding-left: 20%;
     }
-
     .st-key-graphParam .modebar-container {
         display: none;
     }
@@ -89,8 +87,12 @@
 
     .st-key-graphInfo {
         background-color: #281f32;
-        padding: .2rem .3rem .8rem .8rem;
+        padding: 1rem .8rem;
         border-radius: .6rem;
         top: -4.4rem;
+    }
+
+    .st-key-graphBar {
+        margin-bottom: 3.5rem;
     }
 </style>

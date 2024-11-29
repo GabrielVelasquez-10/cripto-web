@@ -33,12 +33,3 @@ def crypto_volatility(index, cons=False):
         return data[index]['Volume'][ran:-1].mean()/10000
     else:
         return data[index]['Volume'][ran:-1].mean()/40000
-
-#intento de convertir un str a fecha y poder trabajarlo 
-def date_visualization():
-    dats={}
-    for date in names_index:
-        dats[date]= data[date]['Date']
-    dats= {key: pd.to_datetime(value, format='ISO8601') for key, value in dats.items()} 
-    return dats
-dats=date_visualization()
